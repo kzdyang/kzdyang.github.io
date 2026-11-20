@@ -491,18 +491,18 @@ button {
   transform: scale(1.06);
 }
 
-/* Sasis Ponsel Titanium Realistis + Tombol Fisik + Kaca OLED */
+/* Sasis Ponsel Titanium Realistis + Tombol Fisik + Layar Edge-to-Edge Lonjong */
 .showcase-phone {
   position: relative;
   z-index: 2;
   margin: 0;
-  width: min(290px, 76vw);
-  border-radius: 44px;
-  padding: 7px;
+  width: min(276px, 76vw);
+  border-radius: 46px;
+  padding: 4.5px;
   border: 1px solid transparent;
   background:
     linear-gradient(166deg, #3c332d 0%, #201a16 42%, #0e0b0a 100%) padding-box,
-    linear-gradient(148deg, rgba(255, 245, 232, 0.48) 0%, rgba(168, 152, 136, 0.16) 36%, rgba(44, 35, 28, 0.85) 68%, rgba(255, 242, 224, 0.26) 100%) border-box;
+    linear-gradient(148deg, rgba(255, 245, 232, 0.52) 0%, rgba(168, 152, 136, 0.18) 36%, rgba(44, 35, 28, 0.85) 68%, rgba(255, 242, 224, 0.28) 100%) border-box;
   box-shadow:
     0 46px 96px rgba(0, 0, 0, 0.82),
     0 14px 30px rgba(0, 0, 0, 0.56),
@@ -527,24 +527,24 @@ button {
 /* Tombol Fisik Samping (Action, Volume, Power) */
 .phone-hw-btn {
   position: absolute;
-  width: 3px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, rgba(255, 246, 234, 0.55), rgba(112, 98, 86, 0.78) 55%, rgba(26, 20, 16, 0.92));
+  width: 2.5px;
+  border-radius: 2.5px;
+  background: linear-gradient(180deg, rgba(255, 246, 234, 0.58), rgba(112, 98, 86, 0.78) 55%, rgba(26, 20, 16, 0.92));
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
   pointer-events: none;
 }
 .showcase-phone[data-mode="light"] .phone-hw-btn {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(154, 142, 130, 0.88) 60%, rgba(92, 82, 74, 0.95));
 }
-.phone-hw-action { left: -3.5px; top: 17%; height: 22px; border-radius: 3px 0 0 3px; }
-.phone-hw-vol-up { left: -3.5px; top: 24.5%; height: 42px; border-radius: 3px 0 0 3px; }
-.phone-hw-vol-dn { left: -3.5px; top: 33.5%; height: 42px; border-radius: 3px 0 0 3px; }
-.phone-hw-power  { right: -3.5px; top: 27%; height: 58px; border-radius: 0 3px 3px 0; }
+.phone-hw-action { left: -3px; top: 16%; height: 22px; border-radius: 3px 0 0 3px; }
+.phone-hw-vol-up { left: -3px; top: 23.5%; height: 42px; border-radius: 3px 0 0 3px; }
+.phone-hw-vol-dn { left: -3px; top: 32.5%; height: 42px; border-radius: 3px 0 0 3px; }
+.phone-hw-power  { right: -3px; top: 26%; height: 58px; border-radius: 0 3px 3px 0; }
 
-/* Bingkai Kaca Hitam OLED Presisi (Nested Radius: 44 - 7 = 37) */
+/* Bingkai Kaca Hitam OLED Ramping (Nested Radius: 46 - 4.5 = 41.5) */
 .phone-glass {
   position: relative;
-  border-radius: 37px;
+  border-radius: 41.5px;
   background: #060505;
   padding: 5px;
   box-shadow:
@@ -557,38 +557,40 @@ button {
 
 .phone-sensor-bar {
   position: relative;
-  height: 18px;
+  height: 11px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   flex-shrink: 0;
   background: #060505;
 }
 
 .phone-earpiece {
-  width: 44px;
-  height: 3.5px;
+  width: 38px;
+  height: 2.5px;
   border-radius: 999px;
   background: linear-gradient(180deg, #1b1817, #2b2725);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.9), 0 0.5px 0 rgba(255, 255, 255, 0.08);
 }
 
 .phone-camera {
-  width: 7px;
-  height: 7px;
+  width: 5.5px;
+  height: 5.5px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #4fa8d6 0%, #173352 46%, #05070c 82%);
   box-shadow:
-    0 0 0 1.5px #141212,
-    0 0 4px rgba(79, 168, 214, 0.25);
+    0 0 0 1.2px #141212,
+    0 0 4px rgba(79, 168, 214, 0.28);
 }
 
+/* Viewport Edge-to-Edge (41.5 - 5 = 36.5; proporsi lonjong 9:17.45 memangkas gutter desktop sisi kiri-kanan gambar) */
 .phone-viewport {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 16;
-  border-radius: 30px;
+  aspect-ratio: 9 / 17.45;
+  border-radius: 35px;
   overflow: hidden;
   background: #0c0a09;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -634,21 +636,6 @@ button {
   opacity: 0;
   transform: translateX(-120%) skewX(-18deg);
   background: linear-gradient(90deg, transparent 0%, rgba(255, 248, 236, 0.28) 50%, transparent 100%);
-}
-
-.phone-home-bar {
-  height: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: #060505;
-}
-.phone-home-bar span {
-  width: 78px;
-  height: 3.5px;
-  border-radius: 999px;
-  background: rgba(245, 240, 232, 0.24);
 }
 
 /* Transisi fallback bila GSAP belum aktif */
