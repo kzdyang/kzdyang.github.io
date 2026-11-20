@@ -88,32 +88,32 @@
   var SCREENS = {
     beranda: {
       note: 'Ringkasan total saldo, pemasukan, dan pengeluaran bulan ini.',
-      darkImg: '08-beranda-gelap.png',
-      lightImg: '01-beranda.png',
+      darkImg: 'phone-beranda-dark.png',
+      lightImg: 'phone-beranda-light.png',
       alt: 'Layar Beranda DompetRumah'
     },
     dompet: {
       note: 'Semua rekening bank, e-wallet, dan uang tunai dalam satu daftar.',
-      darkImg: '05-dompet.png',
-      lightImg: '05-dompet.png',
+      darkImg: 'phone-dompet-dark.png',
+      lightImg: 'phone-dompet-light.png',
       alt: 'Daftar dompet DompetRumah'
     },
     catat: {
       note: 'Catat transaksi cepat dengan pratinjau sisa saldo sebelum simpan.',
-      darkImg: '02-catat-transaksi.png',
-      lightImg: '02-catat-transaksi.png',
+      darkImg: 'phone-catat-dark.png',
+      lightImg: 'phone-catat-light.png',
       alt: 'Form catat transaksi DompetRumah'
     },
     laporan: {
       note: 'Distribusi kategori, tren arus kas, rasio belanja, & rincian 12 bulan.',
-      darkImg: '03-laporan.png',
-      lightImg: '03-laporan.png',
+      darkImg: 'phone-laporan-dark.png',
+      lightImg: 'phone-laporan-light.png',
       alt: 'Laporan keuangan DompetRumah'
     },
     tema: {
       note: '9 palet warna nyaman (terang & gelap) yang lolos kontras WCAG AA.',
-      darkImg: '07-tema.png',
-      lightImg: '07-tema.png',
+      darkImg: 'phone-tema-dark.png',
+      lightImg: 'phone-tema-light.png',
       alt: 'Pilihan 9 tema warna DompetRumah'
     }
   };
@@ -176,7 +176,11 @@
       prevOrder = nextOrder;
 
       phone.setAttribute('data-mode', activeMode);
-      if (wrap) wrap.setAttribute('data-mode', activeMode);
+      phone.setAttribute('data-screen', activeKey);
+      if (wrap) {
+        wrap.setAttribute('data-mode', activeMode);
+        wrap.setAttribute('data-screen', activeKey);
+      }
       modeBtns.forEach(function (b) {
         b.setAttribute('aria-pressed', b.getAttribute('data-stage-mode') === activeMode ? 'true' : 'false');
       });
@@ -248,9 +252,8 @@
     modeBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var targetMode = btn.getAttribute('data-stage-mode') || 'dark';
-        if (targetMode === activeMode && activeKey === 'beranda') return;
+        if (targetMode === activeMode) return;
         activeMode = targetMode;
-        if (activeKey !== 'beranda') activeKey = 'beranda';
         renderStage({ isModeSwitch: true });
       });
     });
