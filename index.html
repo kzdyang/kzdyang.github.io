@@ -104,21 +104,24 @@
               </div>
             </div>
 
-            <div id="stagePhoneWrap" class="stage-phone-wrap" data-mode="dark">
+            <div id="stagePhoneWrap" class="stage-phone-wrap" data-mode="dark" data-screen="beranda">
               <div class="stage-phone-glow" aria-hidden="true"></div>
-              <figure id="showcasePhone" class="showcase-phone" data-mode="dark">
-                <span class="phone-hw-btn phone-hw-action" aria-hidden="true"></span>
-                <span class="phone-hw-btn phone-hw-vol-up" aria-hidden="true"></span>
-                <span class="phone-hw-btn phone-hw-vol-dn" aria-hidden="true"></span>
+              <figure id="showcasePhone" class="showcase-phone" data-mode="dark" data-screen="beranda">
+                <span class="phone-hw-btn phone-hw-vol" aria-hidden="true"></span>
                 <span class="phone-hw-btn phone-hw-power" aria-hidden="true"></span>
                 <div class="phone-glass">
-                  <div class="phone-sensor-bar" aria-hidden="true">
-                    <span class="phone-earpiece"></span>
-                    <span class="phone-camera"></span>
-                  </div>
                   <div class="phone-viewport">
-                    <img id="showcaseImg" class="phone-img-main" data-asset-base="./assets/" src="./assets/08-beranda-gelap.png" alt="Layar Beranda DompetRumah">
-                    <img id="showcaseGhost" class="phone-img-ghost" src="./assets/08-beranda-gelap.png" alt="" aria-hidden="true">
+                    <div class="phone-status-overlay" aria-hidden="true">
+                      <span class="phone-status-time">09:41</span>
+                      <span class="phone-punchhole"></span>
+                      <span class="phone-status-icons">
+                        <svg width="11" height="8" viewBox="0 0 16 11" fill="none"><path d="M8 2C11.1 2 13.8 3.3 15.6 5.4L14.2 6.8C12.7 5.1 10.5 4 8 4C5.5 4 3.3 5.1 1.8 6.8L0.4 5.4C2.2 3.3 4.9 2 8 2ZM8 5.8C9.8 5.8 11.4 6.6 12.6 7.8L11.2 9.2C10.4 8.3 9.2 7.8 8 7.8C6.8 7.8 5.6 8.3 4.8 9.2L3.4 7.8C4.6 6.6 6.2 5.8 8 5.8ZM8 9.4C8.7 9.4 9.2 9.9 9.2 10.6C9.2 11 8.9 11 8 11C7.1 11 6.8 11 6.8 10.6C6.8 9.9 7.3 9.4 8 9.4Z" fill="currentColor"/></svg>
+                        <svg width="15" height="8" viewBox="0 0 22 11" fill="none"><rect x="0.7" y="1" width="17.6" height="9" rx="2.4" stroke="currentColor" stroke-width="1.3" stroke-opacity="0.72"/><rect x="2.3" y="2.6" width="13" height="5.8" rx="1.2" fill="currentColor"/><path d="M20 3.7V7.3C20.7 7 21.1 6.3 21.1 5.5C21.1 4.7 20.7 4 20 3.7Z" fill="currentColor" fill-opacity="0.7"/></svg>
+                      </span>
+                    </div>
+                    <img id="showcaseImg" class="phone-img-main" data-asset-base="./assets/" src="./assets/phone-beranda-dark.png" alt="Layar Beranda DompetRumah">
+                    <img id="showcaseGhost" class="phone-img-ghost" src="./assets/phone-beranda-dark.png" alt="" aria-hidden="true">
+                    <span class="phone-gesture-bar" aria-hidden="true"></span>
                     <div class="phone-glass-glare" aria-hidden="true"></div>
                     <div id="phoneSweep" class="phone-sweep-beam" aria-hidden="true"></div>
                   </div>
