@@ -6,9 +6,14 @@
      ===================================================================== */
   var KY_LINKS = {
     github: 'https://github.com/kzdyang',
-    privacyPolicy: 'https://kzdyang.github.io/dompetrumah-privacy/',
-    email: '7kzd.yang@gmail.com'
+    privacyPolicy: 'https://kzdyang.github.io/dompetrumah-privacy/'
   };
+
+  /* Disusun hanya saat pengguna mengklik tombol kontak (anti-scraper HTML) */
+  var CONTACT_CODES = [55, 107, 122, 100, 46, 121, 97, 110, 103, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109];
+  function resolveContactEmail() {
+    return String.fromCharCode.apply(null, CONTACT_CODES);
+  }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var coarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
@@ -37,17 +42,17 @@
   }
 
   function initCopyButtons() {
-    document.querySelectorAll('[data-copy-email]').forEach(function (btn) {
+    document.querySelectorAll('[data-contact-email]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var email = btn.getAttribute('data-copy-email') || KY_LINKS.email;
+        var addr = resolveContactEmail();
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(function () {
-            showToast('Email disalin: ' + email);
+          navigator.clipboard.writeText(addr).then(function () {
+            showToast('Alamat email dukungan disalin ke clipboard.');
           }).catch(function () {
-            showToast('Email: ' + email);
+            window.location.href = 'mailto:' + addr;
           });
         } else {
-          showToast('Email: ' + email);
+          window.location.href = 'mailto:' + addr;
         }
       });
     });
@@ -390,7 +395,8 @@
       }
     }
 
-    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+    /* Sudah dipanggil pada event load; refresh sekali untuk posisi gambar */
+    ScrollTrigger.refresh();
   }
 
   wireSocialLinks();
@@ -400,5 +406,10 @@
   initFaq();
   initPointerGlow();
   initAtmosphereCanvas();
-  initMotion();
+
+  if (document.readyState === 'complete') {
+    initMotion();
+  } else {
+    window.addEventListener('load', initMotion);
+  }
 })();
